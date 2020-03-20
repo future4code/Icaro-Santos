@@ -1,0 +1,14 @@
+.lista-funcionarios{
+    width: 50vw;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.lista-funcionarios th{
+    font-size: 1.5em;
+}
+
+th, td{
+    border: 1px solid #000;
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+.controle-estoque{
+    width: 70vw;
+    border-collapse: collapse;
+}
+.controle-estoque th{
+    font-size: 1.5em;
+}
+
+th, td{
+    border: 1px solid #000;
+}
+td img {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: auto;
+}
