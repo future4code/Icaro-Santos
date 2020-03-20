@@ -15,16 +15,17 @@ body{
     list-style-type: none;
     width: 300px;
     font-size: 25px;
+    z-index: 1;
 }
 .menu-vertical li a {
-    color: #000;
-    display: block;
     text-decoration: none;
+    padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: block;
+    color: #000;
 }
-
-.active {
+.menu-vertical .active {
     background-color: #4CAF50;
     color: white;
 }
@@ -49,4 +50,20 @@ header{
 .logo{
     height: 100%;
     float: left;
+    padding-left: 10px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background-color: #f1f1f1;
+    height: 50px;
+    line-height: 50px;
+}
+
+.conteudo{
+    margin-left: 350px;
+    margin-top: 10px;
 }

@@ -1,0 +1,24 @@
+ label{
+    display:block;
+    margin-bottom: 5px;
+}
+textarea{
+    width: 70vw;
+    height: 100px;
+}
+.preco, .quantidade{
+    width: 10vw;
+}
+button{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    display: block;
+}
+
+.add-foto, .preco, .quantidade, textarea{
+    margin-bottom: 20px;
+}
