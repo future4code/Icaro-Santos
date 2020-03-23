@@ -138,8 +138,8 @@ td button:hover{
     height: 100px;
 }
 
-
 #back-button {
+    display: block;
     background-color: white;
     width: 100px;
     height: 20px;
@@ -147,6 +147,7 @@ td button:hover{
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin: 50px auto;
 }
 
 #back-button:hover {
