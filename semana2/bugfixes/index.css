@@ -9,6 +9,10 @@
     padding: 0;
 }
 
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -79,6 +83,7 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    display: inline-block;
 }
 
 #container-para-comprar {
