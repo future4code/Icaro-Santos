@@ -107,9 +107,11 @@ div:nth-child(2),
 div:last-child {
     text-align: center;
 }
-
+div table{
+    margin: auto;
+}
 table {
-    width: 60%;
+    width: 50vw;
 }
 
 td button {
