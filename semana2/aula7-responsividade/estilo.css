@@ -44,6 +44,7 @@ nav.listas{
 
 .itemBlue{
     background-color: blue;
+    .col-1;
 }
 .itemYellow{
     background-color: yellow;
@@ -83,9 +84,61 @@ nav.listas{
 }
 
 @media screen and (min-width: 600px){
-    nav.listas{
-        display: inline-block;
-        height: 100vh;
+    .container{
+        margin: auto;
+        width: 90vw;
+        justify-items: end stretch;
+        display:inline-grid;
+    }
 
+    nav.listas{
+        display: list-item;
+        width: 10vw;
+        overflow: auto;
+        height: 100vh;
+        background-color: #f1f1f1;
+    }
+
+    .container-1{
+        grid-template-columns: 10vw 1fr 1fr;
+    }
+    .container-2{
+        grid-template-columns: 10vw 1fr 1fr;
+    }
+    .container-3{
+        grid-template-columns: 10vw 1fr 1fr;
+    }
+    .item1{
+        grid-column: 2 / 3;
+    }
+    .item2{
+        grid-column: 3/4;
+    }
+    .item3{
+        grid-column: 2/4;
+    }
+    .item4{
+        grid-column: 2 / 3;
+    }
+    .item5{
+        grid-column: 3/4;
+    }
+    .item6{
+        grid-column: 2/4;
+    }
+    .item7{
+        grid-column: 2/3;
+    }
+    .item8{
+        grid-column: 3/4;
+    }
+    .item9{
+        grid-column: 2 / 3;
+    }
+    .item10{
+        grid-column: 3/4;
+    }
+    .item11{
+        grid-column: 2 / 3;
     }
 }
