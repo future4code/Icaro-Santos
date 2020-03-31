@@ -119,3 +119,122 @@
 //     }
 // }
 // Link do diagrama: https://drive.google.com/open?id=1lXA7IHBqvDOtmlllVOySCsC-cY-qvBod
+
+// Desafio
+let nomeCompleto = prompt("Digite seu nome completo");
+let tipoDeJogo = prompt("Digite o tipo de jogo [IN/DO]");
+let etapa = prompt("Digite a etapa do jogo [SF/DT/FI]");
+let categoria = Number(prompt("Digite qual categoria deseja"));
+let qtd = Number(prompt("Digite a quantidade de ingressos"));
+let ingresso = Number();
+
+switch(tipoDeJogo.toLowerCase()){
+    case "in":
+        if (etapa.toLowerCase() === "sf"){
+            switch(categoria){
+                case 1:
+                    ingresso = 1320 / 4.1;
+                    break;
+                case 2:
+                    ingresso = 880 / 4.1;
+                    break;
+                case 3:
+                    ingresso = 550 / 4.1;
+                    break;
+                case 5:
+                    ingresso = 220 / 4.1;
+                    break;
+            }
+            etapa = "Semi-final"
+        }
+        if (etapa.toLowerCase() === "dt"){
+            switch(categoria){
+                case 1:
+                    ingresso = 660 / 4.1;
+                    break;
+                case 2:
+                    ingresso = 440 / 4.1;
+                    break;
+                case 3:
+                    ingresso = 330 / 4.1;
+                    break;
+                case 5:
+                    ingresso = 170 / 4.1;
+                    break;
+            }
+            etapa = "Decisão de Terceiro lugar";
+        }
+        if (etapa.toLowerCase() === "fi"){
+            switch(categoria){
+                case 1:
+                    ingresso = 1980 / 4.1;
+                    break;
+                case 2:
+                    ingresso = 1320 / 4.1;
+                    break;
+                case 3:
+                    ingresso = 880 / 4.1;
+                    break;
+                case 5:
+                    ingresso = 330 / 4.1;
+                    break;
+            }
+            etapa = "Final";
+        }
+        console.log("------Dados de compra------\nNome do cliente:" + nomeCompleto + "\nTipo de Jogo: Internacional\nEtapa do Jogo: " + etapa + "\nCategoria: " + categoria + "\nQuantidade de ingressos: " + qtd + "\n------Valores------\nValor do ingresso: U$" + ingresso + "\nValor Total: U$" + ingresso*qtd);
+        break;
+    case "do":
+        if (etapa.toLowerCase() === "sf"){
+            switch(categoria){
+                case 1:
+                    ingresso = 1320;
+                    break;
+                case 2:
+                    ingresso = 880;
+                    break;
+                case 3:
+                    ingresso = 550;
+                    break;
+                case 5:
+                    ingresso = 220;
+                    break;
+            }
+            etapa = "Semi-final"
+        }
+        if (etapa.toLowerCase() === "dt"){
+            switch(categoria){
+                case 1:
+                    ingresso = 660;
+                    break;
+                case 2:
+                    ingresso = 440;
+                    break;
+                case 3:
+                    ingresso = 330;
+                    break;
+                case 5:
+                    ingresso = 170;
+                    break;
+            }
+            etapa = "Decisão de Terceiro lugar";
+        }
+        if (etapa.toLowerCase() === "fi"){
+            switch(categoria){
+                case 1:
+                    ingresso = 1980;
+                    break;
+                case 2:
+                    ingresso = 1320;
+                    break;
+                case 3:
+                    ingresso = 880;
+                    break;
+                case 5:
+                    ingresso = 330;
+                    break;
+            }
+            etapa = "Final";
+        }
+        console.log("------Dados de compra------\nNome do cliente:" + nomeCompleto + "\nTipo de Jogo: Doméstico\nEtapa do Jogo: " + etapa + "\nCategoria: " + categoria + "\nQuantidade de ingressos: " + qtd + "\n------Valores------\nValor do ingresso: R$" + ingresso + "\nValor Total: R$" + ingresso*qtd);
+        break;
+}
