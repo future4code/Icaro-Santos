@@ -87,21 +87,41 @@
 // console.log(newArray)
 
 // Desafio escrita 02
+// const numJogador1 = Number(prompt("O primeiro jogador deve digitar um número"));
+// console.log("Vamos jogar!!");
+// let numJogador2 = Number(prompt("Segundo jogador: Digite um número"));
+// let tentativas = 0;
 
-const numJogador1 = Number(prompt("O primeiro jogador deve digitar um número"));
-console.log("Vamos jogar!!");
-let numJogador2 = Number(prompt("Segundo jogador: Digite um número"));
-let tentativas = 0;
+// while (numJogador1 !== numJogador2){
+//     if(numJogador1 > numJogador2){
+//         console.log("Errou, é maior");
+//     }else{
+//         console.log("Errou, é menor");
+//     }
+//     console.log("O número chutado foi: " + numJogador2);
+//     numJogador2 = Number(prompt("Segundo jogador: Digite um número"));
+//     tentativas++;
+// }
+// console.log("Acertou");
+// console.log("O número de tentativas foi: " + tentativas);
 
-while (numJogador1 !== numJogador2){
-    if(numJogador1 > numJogador2){
+// Desafio escrita 03
+let numeroAleatorio = Number(Math.floor(Math.random() * 100) + 1);
+console.log("Vamos jogar!");
+ let numJogador2 = Number(prompt("Digite um número"));
+ let tentativas = 0;
+
+while (numeroAleatorio !== numJogador2){
+    if(numeroAleatorio > numJogador2){
         console.log("Errou, é maior");
     }else{
         console.log("Errou, é menor");
     }
     console.log("O número chutado foi: " + numJogador2);
-    numJogador2 = Number(prompt("Segundo jogador: Digite um número"));
+    numJogador2 = Number(prompt("Digite um número"));
     tentativas++;
 }
 console.log("Acertou");
 console.log("O número de tentativas foi: " + tentativas);
+
+// Pela forma que escrevi o código foi bem fácil de fazer pois só precisei alterar o nome da variável do jogador um, e colocar a sinxtaxe do código randômico para que o próprio js gerasse um número aleatório de 1 a 100
