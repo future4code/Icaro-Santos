@@ -62,10 +62,10 @@ body{
 
 .tamanho-agenda{
     border: 1px solid #000;
-    height: 50vh;
-    max-height: 50vh;
+    height: 40vh;
+    max-height: 40vh;
 }
 
 ul{
-    height: 80%;
+    float: left;
 }
