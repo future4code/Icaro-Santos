@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script defer src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="tarefa">Nova tarefa: </label>
+                    <input id="tarefa" type="text" placeholder="Digite a tarefa" value="">
+                    <select id="semana">
+                        <option value="domingo">Domingo</option>
+                        <option value="segunda">Segunda-feira</option>
+                        <option value="terca">Terça-feira</option>
+                        <option value="quarta">Quarta-feira</option>
+                        <option value="quinta">Quinta-feira</option>
+                        <option value="sexta">Sexta-feira</option>
+                        <option value="sabado">Sábado</option>
+                    </select> 
+                    <button onclick="adicionarTarefa()">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Domingo</h1>
+                    <ul id="lista-domingo"></ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Segunda-feira</h1>
+                    <ul id="lista-segunda">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Terça-feira</h1>
+                    <ul id="lista-terca">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Quarta-feira</h1>
+                    <ul id="lista-quarta">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Quinta-feira</h1>
+                    <ul id="lista-quinta">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Sexta-feira</h1>
+                    <ul id="lista-sexta">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Sábado</h1>
+                    <ul id="lista-sabado">
+                    </ul>
+                </div>
+        </div>
+    </section>
+</body>
+</html>
