@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script defer src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="tarefa">Nova tarefa: </label>
+                    <input id="tarefa" type="text" placeholder="Digite a tarefa" value="">
+                    <select id="semana">
+                        <option value="domingo">Domingo</option>
+                        <option value="segunda">Segunda-feira</option>
+                        <option value="terca">Terça-feira</option>
+                        <option value="quarta">Quarta-feira</option>
+                        <option value="quinta">Quinta-feira</option>
+                        <option value="sexta">Sexta-feira</option>
+                        <option value="sabado">Sábado</option>
+                    </select> 
+                    <select id="horas">
+                        <option value="00hr: ">00hr</option>
+                        <option value="01hr: ">01hr</option>
+                        <option value="02hr: ">02hr</option>
+                        <option value="03hr: ">03hr</option>
+                        <option value="04hr: ">04hr</option>
+                        <option value="05hr: ">05hr</option>
+                        <option value="06hr: ">06hr</option>
+                        <option value="07hr: ">07hr</option>
+                        <option value="08hr: ">08hr</option>
+                        <option value="09hr: ">09hr</option>
+                        <option value="10hr: ">10hr</option>
+                        <option value="11hr: ">11hr</option>
+                        <option value="12hr: ">12hr</option>
+                        <option value="13hr: ">13hr</option>
+                        <option value="14hr: ">14hr</option>
+                        <option value="15hr: ">15hr</option>
+                        <option value="16hr: ">16hr</option>
+                        <option value="17hr: ">17hr</option>
+                        <option value="18hr: ">18hr</option>
+                        <option value="19hr: ">19hr</option>
+                        <option value="20hr: ">20hr</option>
+                        <option value="21hr: ">21hr</option>
+                        <option value="22hr: ">22hr</option>
+                        <option value="23hr: ">23hr</option>
+                    </select>
+                    <button onclick="adicionarTarefa()">Adicionar</button>
+                    <button onclick="apagarTudo()">Apagar Tarefas</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Domingo</h1>
+                    <ul id="lista-domingo"></ul>
+                    
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Segunda-feira</h1>
+                    <ul id="lista-segunda">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Terça-feira</h1>
+                    <ul id="lista-terca">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Quarta-feira</h1>
+                    <ul id="lista-quarta">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Quinta-feira</h1>
+                    <ul id="lista-quinta">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Sexta-feira</h1>
+                    <ul id="lista-sexta">
+                    </ul>
+                </div>
+                <div class="col col-2 col-4 tamanho-agenda">
+                    <h1>Sábado</h1>
+                    <ul id="lista-sabado">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
