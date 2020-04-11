@@ -1,5 +1,5 @@
 const cadastro = {
-    inputValor: document.getElementById("input-valor"), 
+    inputValor: document.getElementById("input-valor"),
     inputTipo: document.getElementById("input-tipo"),
     inputDescricao: document.getElementById("input-descricao"), 
     botaoCadastrar: document.getElementById("botao-cadastrar")
@@ -14,17 +14,27 @@ const detalhes = {
     botaoLimparFiltros: document.getElementById("botao-limpar-filtros")
 }
 
-function cadastrarDespesa(evento){
-
-        detalhes.divDetalhes.innerHTML += "<p>Descrição: " + cadastro.inputDescricao.value + "</p>" + "<p>Tipo de compra: " + cadastro.inputTipo.options[cadastro.inputTipo.selectedIndex].text + "</p>" + "<p>Valor: R$" + cadastro.inputValor.value + "</p>"
-        cadastro.inputValor.value = "";
-        cadastro.inputDescricao.value = "";
-        cadastro.inputTipo.value = "";
-    
+const extrato = {
+    divExtrato: document.getElementById("extrato")
 }
 
-function filtrosDespesas(evento){
+let valorTotal = 0;
 
+
+function cadastrarDespesa(evento){
+    detalhes.divDetalhes.innerHTML += "<p>Descrição: " + cadastro.inputDescricao.value + "</p>" + "<p>Tipo de compra: " + cadastro.inputTipo.options[cadastro.inputTipo.selectedIndex].text + "</p>" + "<p>Valor: R$" + Number.parseFloat(cadastro.inputValor.value) + "</p>"
+    valorTotal += Number.parseFloat(cadastro.inputValor.value);
+    extrato.divExtrato.innerHTML = "<h1>Extrato</h1>";
+    extrato.divExtrato.innerHTML += "<h2>Valor total</h2>";
+    extrato.divExtrato.innerHTML += "<p>R$ " + valorTotal + "</p>";
+    cadastro.inputValor.value = "";
+    cadastro.inputDescricao.value = "";
+    cadastro.inputTipo.value = "";    
+}
+
+
+function filtrosDespesas(evento){
+    
 }
 
 function  limparFiltros(evento){
