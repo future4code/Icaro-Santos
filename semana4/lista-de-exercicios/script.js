@@ -12,3 +12,12 @@
 // c. true
 // d. true
 // e. true
+
+//Exercício 2
+// O código não funciona, para funcionar deveria ficar da seguinte forma: 
+// const quantidadeDeNumerosPares;
+// let i = 0;
+// while(i <= quantidadeDeNumerosPares) {
+//   console.log(i*2);
+//   i++;
+// }
