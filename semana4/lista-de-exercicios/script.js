@@ -108,15 +108,28 @@
 //     diretor: "Icaro, o lindo",
 //     atores: ["João", "Melissa", "Mais alguem"]
 // }
-
 // function imprimeArrayAtores(array){
 //     for(const i of array){
 //         if(array !== undefined){
 //             return String(array);
 //         }else{
 //             return String(i);
-//         }
-        
+//         }      
 //     }
 // }
 // console.log("Venha assistir ao filme ", filme.titulo, " do ano ", filme.ano, " digirido por ", filme.diretor, " estrelado por", imprimeArrayAtores(filme.atores));
+
+//Exercício 04
+// let pessoa = {
+//     nome: "Icaro",
+//     idade: 23,
+//     email: "icaro.ssantos96@gmail.com",
+//     endereco: "Estrada dos Alvarenga 10.059"
+// }
+
+// function anonimizarPessoa(){
+//     const pessoaAnonima = {
+//         ...pessoa,
+//         nome: "Anonimo"
+//     }
+// }
