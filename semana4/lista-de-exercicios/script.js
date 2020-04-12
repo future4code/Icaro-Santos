@@ -21,3 +21,14 @@
 //   console.log(i*2);
 //   i++;
 // }
+
+// Exercício 3
+function triangulo(a, b, c){
+    if(a === b === c){
+        return "Equilátero";
+    }else if(a === b || b === c){
+        return "Isósceles";
+    }else{
+        return "Escaleno";
+    }
+}
