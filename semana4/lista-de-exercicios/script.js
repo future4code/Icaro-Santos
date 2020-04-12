@@ -102,3 +102,21 @@
 // }
 
 // Exercício 03
+// const filme = {
+//     titulo: "Qualquer coisa",
+//     ano: 2020,
+//     diretor: "Icaro, o lindo",
+//     atores: ["João", "Melissa", "Mais alguem"]
+// }
+
+// function imprimeArrayAtores(array){
+//     for(const i of array){
+//         if(array !== undefined){
+//             return String(array);
+//         }else{
+//             return String(i);
+//         }
+        
+//     }
+// }
+// console.log("Venha assistir ao filme ", filme.titulo, " do ano ", filme.ano, " digirido por ", filme.diretor, " estrelado por", imprimeArrayAtores(filme.atores));
