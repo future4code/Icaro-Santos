@@ -165,8 +165,7 @@
 //         return `${num} é impar`;
 //     }
 // })
-
-// Exercício 05
+// Exercício 04
 // a.
 // const podemEntrar = pessoas.filter((pessoa, idx, arr) =>{
 //     return pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura >= 1.5;
@@ -175,3 +174,43 @@
 // const naoPodemEntrar = pessoas.filter((pessoa, idx, arr) => {
 //     return pessoa.idade >= 60 || pessoa.idade <= 14 || pessoa.altura < 1.5;
 // })
+
+// Exercício 05
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+    { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+    { nome: "Icaro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+const naoCanceladoHomem = consultas.filter((consulta, idx, arr) => {
+    return !consulta.cancelada && consulta.genero === "masculino";
+})
+const canceladoHomem = consultas.filter((consulta, idx, arr) => {
+    return consulta.cancelada && consulta.genero === "masculino";
+})
+
+const naoCanceladoMulher = consultas.filter((consulta, idx, arr) =>{
+    return !consulta.cancelada && consulta.genero === "feminino";
+})
+
+const canceladoMulher = consultas.filter((consulta, idx, arr) =>{
+    return consulta.cancelada && consulta.genero === "feminino";
+})
+
+for (let i in naoCanceladoHomem){
+    console.log(`Olá, Sr ${naoCanceladoHomem[i].nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${ naoCanceladoHomem[i].dataDaConsulta }. Por favor, acuse o recebimento deste e-mail.`)
+}
+
+for (let i in canceladoHomem){
+    console.log(`Olá, Sr ${canceladoHomem[i].nome}. Infelizmente, sua consulta marcada para o dia ${ canceladoHomem[i].dataDaConsulta } foi cancelada. Se quiser pode entrar em contato conosco para remarcá-la.`)
+}
+
+for (let i in naoCanceladoMulher){
+    console.log(`Olá, Sra. ${naoCanceladoMulher[i].nome}. Estamos enviando esta mensagem para lembrá-lo da sua consulta no dia ${ naoCanceladoMulher[i].dataDaConsulta }. Por favor, acuse o recebimento deste e-mail.`)
+}
+
+for (let i in canceladoMulher){
+    console.log(`Olá, Sra. ${canceladoMulher[i].nome}. Infelizmente, sua consulta marcada para o dia ${ canceladoMulher[i].dataDaConsulta } foi cancelada. Se quiser pode entrar em contato conosco para remarcá-la.`)
+}
