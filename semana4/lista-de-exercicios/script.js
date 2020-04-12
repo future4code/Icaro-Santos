@@ -90,3 +90,15 @@
 
 // Exercícios de objetos
 // Exercício 01
+// Podemos utilizar arrays e objetos quando queremos criar mais de um objeto com aquele mesmo "padrão" que criamos antes. Exemplo, digamos que eu queira criar alguns inputs, onde o usuário pode salvar seu input, e eu queira salvar todos eles. Eu posso criar uma array de objeto para sempre salvar num mesmo formato.
+// Exercício 02
+// function criaRetangulo(lado1, lado2){
+//     return infos = {
+//         largura: lado1,
+//         altura: lado2,
+//         perimetro: 2*(lado1 + lado2),
+//         area: lado1*lado2
+//     }
+// }
+
+// Exercício 03
