@@ -32,3 +32,27 @@
 //         return "Escaleno";
 //     }
 // }
+
+// Exercício 4
+// function maior(a, b){
+//     if(a > b){
+//         return a;
+//     }else{
+//         return b;
+//     }
+// }
+// function divisivel(a, b){
+//     if (a%b === 0){
+//         return a + " é divisivel por " + b;
+//     }else{
+//         return a + " não é divisível por " + b;
+//     }
+// }
+
+// function diferenca(a, b){
+//     if(a > b){
+//         return a - b;
+//     }else{
+//         return b - a;
+//     }
+// }
