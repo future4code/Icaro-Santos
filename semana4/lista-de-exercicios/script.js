@@ -133,3 +133,35 @@
 //         nome: "Anonimo"
 //     }
 // }
+
+// Aula 16 - Callback e funções de array
+// Exercício 01
+// For, while e for of...
+// Exercício 02
+// a. 
+// const soAdultos = pessoas.filter((pessoa, idx, array) => {
+//     return pessoa.idade >= 18;
+// })
+// b.
+// const soCriancas = pessoas.filter((pessoa, idx, array) =>{
+//     return pessoa.idade < 18;
+// })
+// console.log(soCriancas);
+// Exercício 03
+// a.
+// const arrayMult = array.map((num, idx, arr) => {
+//     return num * 2;
+// })
+// b.
+// const arrayTrip = array.map((num, idx, arr) => {
+//     return String(num*2);
+// })
+// c.
+// const parImpar = array.map((num, idx, arr) => {
+//     if (num%2 === 0){
+//         return `${num} é par`;
+//     }
+//     if (num%2 !== 0){
+//         return `${num} é impar`;
+//     }
+// })
