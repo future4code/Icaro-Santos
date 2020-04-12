@@ -165,3 +165,13 @@
 //         return `${num} é impar`;
 //     }
 // })
+
+// Exercício 05
+// a.
+// const podemEntrar = pessoas.filter((pessoa, idx, arr) =>{
+//     return pessoa.idade > 14 && pessoa.idade < 60 && pessoa.altura >= 1.5;
+// })
+// b.
+// const naoPodemEntrar = pessoas.filter((pessoa, idx, arr) => {
+//     return pessoa.idade >= 60 || pessoa.idade <= 14 || pessoa.altura < 1.5;
+// })
