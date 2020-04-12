@@ -56,3 +56,37 @@
 //         return b - a;
 //     }
 // }
+
+// Aula 15 - Objetos, Strings e Arrays
+// Exercícios de funções
+// Exercício 1
+// const arrayDeNumeros = [100,5,4,10,15];
+// let valorMenor = arrayDeNumeros[0];
+// let valorMaior = arrayDeNumeros[0];
+// function maior(array){
+//     for (let i = 0; i < array.length; i++){
+//         if (array[i] > valorMaior){
+//             valorMaior = array[i];
+//         }
+//     }
+//     return valorMaior;
+// }
+// function menor(array){
+//     for (let i = 0; i < array.length; i++){
+//         if (array[i] < valorMenor){
+//             valorMenor = array[i];
+//         }
+//     }
+//     return valorMenor;
+// }
+// console.log(maior(arrayDeNumeros));
+// console.log(menor(arrayDeNumeros));
+
+// Exercício 2
+// let hello = () => {
+//     alert("Hello World!");
+// }
+// hello();
+
+// Exercícios de objetos
+// Exercício 01
