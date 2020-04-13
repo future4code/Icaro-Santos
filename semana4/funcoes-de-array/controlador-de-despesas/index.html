@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script defer src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="cadastro">
+        <h1>Controlador de despesas</h1>
+        <p>Cadastrar despesa</p>
+        <label for="input-valor">Valor</label>
+        <input name="input-valor" id="input-valor"><br>
+        <label for="input-tipo">Tipo de despesa</label>
+        <select name="input-tipo" id="input-tipo" >
+            <option value="casa">Casa</option>
+            <option value="role">Rolê</option>
+            <option value="viagem">Viagem</option>
+            <option value="outros">Outros</option>
+        </select><br>
+        <label for="input-descricao">Descrição</label>
+        <input name="input-descricao" id="input-descricao" ><br>
+        <button id="botao-cadastrar" onclick="cadastrarDespesa(event)">Cadastrar Despesa</button>
+    </div>
+
+    <div id="filtro">
+        <h1>Despesas Detalhadas</h1>
+        <label for="input-tipo-filtro">Tipo de despesa</label>
+        <select name="input-tipo-filtro" id = "input-tipo-filtro">
+            <option value="Casa">Casa</option>
+            <option value="Rolê">Rolê</option>
+            <option value="Viagem">Viagem</option>
+            <option value="Outros">Outros</option>
+        </select><br>
+        <label for="input-valor-minimo">Valor Mínimo</label>
+        <input name="input-valor-minimo" id="input-valor-minimo"><br>
+        <label for="input-valor-maximo">Valor Máximo</label>
+        <input name="input-valor-maximo" id="input-valor-maximo"><br>
+        <button id="botao-filtros" onclick="filtrosDespesas(event)">Filtrar</button>
+        <button id="botao-limpar-filtros" onclick="limparFiltros(event)">Limpar Filtros</button>
+    </div>
+
+    <div id="detalhes-despesas"></div>
+
+    <div id="extrato">
+        <h1>Extrato</h1>
+        <h2>Valor total</h2>
+    </div>
+    
+</body>
+</html>

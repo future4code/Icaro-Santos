@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    padding-bottom: 50px;
+    padding-left: 10px;
+}
+
+#detalhes-despesas{
+    margin-top: -50px;
+}
+#cadastro{
+    margin-top: 10px;
+}
