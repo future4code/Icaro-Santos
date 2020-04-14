@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Icaro from './icaro.jpg';
 import CardGrande from './components/CardGrande/CardGrande';
 import ImagemButton from './components/ImagemButton/ImagemButton';
 import CardPequeno from './components/CardPequeno/CardPequeno';
@@ -10,7 +11,7 @@ function App() {
       <div className="page-section-container">
         <h2>Dados pessoais</h2>
         <CardGrande 
-          imagem="https://uploads-ssl.webflow.com/5d640f4558306be99cf47a0e/5dd57846babb597b77c6bb1d_PerfilFuture4_cor.png" 
+          imagem={Icaro} 
           nome="Icaro" 
           descricao="Oi, eu sou o Icaro. Sou aluno da Labenu. Amo jogar FPS online, ou jogos em competitivos em geral."
         />
@@ -27,19 +28,37 @@ function App() {
           descricao={"Email: "}
           informacao={"icaro.ssantos96@gmail.com"}
         />
-        <CardPequeno imagem={"https://image.flaticon.com/icons/svg/1239/1239525.svg"} descricao={"Endereço: "} informacao={"Estrada dos Alvarenga 10.059"} />
+        <CardPequeno 
+          imagem={"https://image.flaticon.com/icons/svg/1239/1239525.svg"} 
+          descricao={"Endereço: "} 
+          informacao={"Estrada dos Alvarenga 10.059"} 
+        />
+      </div>
+
+      <div className="page-section-container">
+        <h2>Formação</h2>
+        <CardGrande
+          imagem={"https://unipeadvilamaria.com.br/wp-content/uploads/2018/11/cropped-icone.png"}
+          nome={"UNIP"}
+          descricao={"2019 até 2012 - Análise e Desenvolvimento de Sistemas"}
+          />
+        <CardGrande
+            imagem={"https://cdn6.aptoide.com/imgs/8/a/f/8afd479e1ab2231ff09ee2ecac697a0b_icon.png?w=256"}
+            nome={"Alura"}
+            descricao={"Lógica de Programação com HTML e JavaScript; HTML e CSS; Design Responsivo; Photoshop: Tratamento de imagens; Criação de ilustração vetorial no Illustrator"}
+        />
       </div>
 
       <div className="page-section-container">
         <h2>Experiências profissionais</h2>
         <CardGrande 
-          imagem="https://s3.amazonaws.com/future4.com.br/static/headf4-c492117ca2373dc85ca81bf715b3dc2a.png" 
+          imagem="https://ricercainovacao.com.br/wp-content/uploads/2017/04/logoRicerca_preto.png" 
           nome="Ricerca" 
           descricao="Estagiário" 
         />
         
         <CardGrande 
-          imagem="https://imagens.canaltech.com.br/empresas/4418.400.jpg" 
+          imagem="https://grupoallnet.com.br/wp-content/uploads/2018/11/favicon-allnet-150x150.png" 
           nome="All Net" 
           descricao="Instrutor de Informática" 
         />
