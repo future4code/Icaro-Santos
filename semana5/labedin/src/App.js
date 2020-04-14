@@ -43,6 +43,11 @@ function App() {
           descricao={"2019 até 2012 - Análise e Desenvolvimento de Sistemas"}
           />
         <CardGrande
+          imagem={"https://uploads-ssl.webflow.com/5e790d30d198385b09366d8f/5e791f706b1280c869ec01b8_Logo_labenu_pq.png"}
+          nome={"Labenu"}
+          descricao={"Full Stack Developer"}
+        />
+        <CardGrande
             imagem={"https://cdn6.aptoide.com/imgs/8/a/f/8afd479e1ab2231ff09ee2ecac697a0b_icon.png?w=256"}
             nome={"Alura"}
             descricao={"Lógica de Programação com HTML e JavaScript; HTML e CSS; Design Responsivo; Photoshop: Tratamento de imagens; Criação de ilustração vetorial no Illustrator"}
