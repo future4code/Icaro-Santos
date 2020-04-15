@@ -2,17 +2,25 @@ import React from 'react'
 import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
+import iconeMarcacaoBranco from '../../img/bookmark_white.svg'
+import iconeMarcacaoPreto from '../../img/bookmark.svg'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
+import iconeCompartilhar from '../../img/share.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import {IconeSemContador} from '../IconeSemContador/IconeSemContador'
+import {SecaoCompartilhar} from '../SecaoCompartilhar/SecaoCompartilhar'
 
 class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    marcacao: false,
+    compartilhar: false,
+    valorCompartilhar: ''
   }
 
   onClickCurtida = () => {
@@ -26,9 +34,49 @@ class Post extends React.Component {
     }
   }
 
+  onClickMarcacao = () => {
+    this.setState({
+      marcacao: !this.state.marcacao
+    })
+  }
+
+  onClickCompartilhar = () => {
+    this.setState({
+      compartilhar: !this.state.compartilhar
+    })
+  }
+
   onClickComentario = () => {
     this.setState({
-      comentando: !this.state.comentando
+      comentando:!this.state.comentando
+    })
+  }
+
+  onChangeMensagem = (event) => {
+    this.setState({valorCompartilhar: event.target.value})
+}
+
+  onClickFacebook = () => {
+    console.log("Post compartilhado no Facebook com a mensagem: " + this.state.valorCompartilhar);
+    this.setState({
+      compartilhar: false,
+      valorMensagem: ''
+    })
+  }
+
+  onClickInstagram = () => {
+    console.log("Post compartilhado no Instagram com a mensagem: " + this.state.valorCompartilhar);
+    this.setState({
+      compartilhar: false,
+      valorMensagem: ''
+    })
+  }
+
+  onClickTwitter = () => {
+    console.log("Post compartilhado no Twitter com a mensagem: " + this.state.valorCompartilhar);
+    this.setState({
+      compartilhar: false,
+      valorMensagem: ''
     })
   }
 
@@ -40,6 +88,7 @@ class Post extends React.Component {
   }
   render() {
     let iconeCurtida
+    let iconeMarcacao
 
     if(this.state.curtido) {
       iconeCurtida = iconeCoracaoPreto
@@ -47,10 +96,27 @@ class Post extends React.Component {
       iconeCurtida = iconeCoracaoBranco
     }
 
+    if(this.state.marcacao) {
+      iconeMarcacao = iconeMarcacaoPreto
+    } else {
+      iconeMarcacao = iconeMarcacaoBranco
+    }
+
     let componenteComentario
 
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    }
+
+    let componenteCompartilhar
+
+    if(this.state.compartilhar){
+      componenteCompartilhar = <SecaoCompartilhar 
+        facebook={this.onClickFacebook}
+        instagram={this.onClickInstagram}
+        twitter={this.onClickTwitter}
+        mudarMensagem={this.onChangeMensagem}
+        mensagem={this.state.mensagem}/>
     }
 
     return <div className={'post-container'}>
@@ -68,6 +134,16 @@ class Post extends React.Component {
           valorContador={this.state.numeroCurtidas}
         />
 
+        <IconeSemContador
+          icone={iconeMarcacao}
+          onClickIcone={this.onClickMarcacao}
+        />
+
+        <IconeSemContador 
+          icone={iconeCompartilhar}
+          onClickIcone={this.onClickCompartilhar}
+        />
+
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
@@ -75,6 +151,7 @@ class Post extends React.Component {
         />
       </div>
       {componenteComentario}
+      {componenteCompartilhar}
     </div>
   }
 }
