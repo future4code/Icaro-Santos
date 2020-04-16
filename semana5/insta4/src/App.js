@@ -46,7 +46,10 @@ class App extends React.Component {
     const novosPosts = [...this.state.post, novoPost]
 
     this.setState({
-      post: novosPosts
+      post: novosPosts,
+      inputUsuario: "",
+      inputFotoPost: "",
+      inputFotoUsuario: ""
     })
   }
 
