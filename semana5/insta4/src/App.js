@@ -3,7 +3,7 @@ import './App.css';
 import Post from './components/Post/Post';
 import styled from 'styled-components';
 
-const DivAdicionarPost = styled.div`
+const AdicionarPost = styled.div`
   display: block;
   justify-content: center;
   padding: 5px;
@@ -70,18 +70,19 @@ class App extends React.Component {
           nomeUsuario={posts.nomeUsuario}
           fotoUsuario={posts.fotoUsuario}
           fotoPost={posts.fotoPost}
+          key={posts}
         />
       )
     })
 
     return (
       <div className={'app-container'}>
-        <DivAdicionarPost>
+        <AdicionarPost>
           <InputPost placeholder={'Nome de Usuário'} value={this.state.inputUsuario} onChange={this.onChangeUsuario}></InputPost>
           <InputPost placeholder={'Foto do perfil'} value={this.state.inputFotoUsuario} onChange={this.onChangeFotoUsuario}></InputPost>
           <InputPost placeholder={'Foto do post'} value={this.state.inputFotoPost} onChange={this.onChangeFotoPost}></InputPost>
           <BotaoAdicionar onClick={this.adicionarPost}>Adicionar Post</BotaoAdicionar>
-        </DivAdicionarPost>
+        </AdicionarPost>
         {listaDePost}
       </div>
     );

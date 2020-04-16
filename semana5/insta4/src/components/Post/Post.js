@@ -1,5 +1,4 @@
 import React from 'react'
-import './Post.css'
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 import iconeMarcacaoBranco from '../../img/bookmark_white.svg'
 import iconeMarcacaoPreto from '../../img/bookmark.svg'
@@ -51,7 +50,9 @@ class Post extends React.Component {
     numeroComentarios: 0,
     marcacao: false,
     compartilhar: false,
-    valorCompartilhar: ''
+    valorCompartilhar: '',
+    valorComentario: '',
+    comentarios: []
   }
 
   onClickCurtida = () => {
@@ -87,6 +88,10 @@ class Post extends React.Component {
     this.setState({valorCompartilhar: event.target.value})
 }
 
+  onChangeComentario = (event) => {
+    this.setState({valorComentario: event.target.value})
+  }
+
   onClickFacebook = () => {
     console.log("Post compartilhado no Facebook com a mensagem: " + this.state.valorCompartilhar);
     this.setState({
@@ -112,9 +117,13 @@ class Post extends React.Component {
   }
 
   aoEnviarComentario = () => {
+    const novoComentario = this.state.valorComentario
+
+    const novosComentarios = [...this.state.comentarios, novoComentario]
     this.setState({
       comentando: false,
-      numeroComentarios: this.state.numeroComentarios + 1
+      numeroComentarios: this.state.numeroComentarios + 1,
+      comentarios: novosComentarios
     })
   }
   render() {
@@ -136,8 +145,18 @@ class Post extends React.Component {
     let componenteComentario
 
     if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+      componenteComentario = <SecaoComentario 
+      comentario={this.valorComentario} 
+      aoEnviar={this.aoEnviarComentario}
+      onChangeComentario={this.onChangeComentario}>
+      </SecaoComentario>
     }
+
+    const listaDeComentarios = this.state.comentarios.map((escrita) => {
+      return(
+        <p>{escrita}</p>
+      )
+    })
 
     let componenteCompartilhar
 
@@ -152,11 +171,11 @@ class Post extends React.Component {
 
     return <PostContainer>
       <PostHeader>
-        <FotoUsuario className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <FotoUsuario src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </PostHeader>
 
-      <FotoPost className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <FotoPost src={this.props.fotoPost} alt={'Imagem do post'}/>
 
       <PostFooter>
         <IconeComContador
@@ -181,6 +200,7 @@ class Post extends React.Component {
           valorContador={this.state.numeroComentarios}
         />
       </PostFooter>
+      {listaDeComentarios}
       {componenteComentario}
       {componenteCompartilhar}
     </PostContainer>
