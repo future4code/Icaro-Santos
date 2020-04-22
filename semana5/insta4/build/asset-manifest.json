@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e50eebfd.chunk.css",
+    "main.js": "/static/js/main.9a62b2f7.chunk.js",
+    "main.js.map": "/static/js/main.9a62b2f7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.40261604.js",
+    "runtime-main.js.map": "/static/js/runtime-main.40261604.js.map",
+    "static/js/2.b1b73690.chunk.js": "/static/js/2.b1b73690.chunk.js",
+    "static/js/2.b1b73690.chunk.js.map": "/static/js/2.b1b73690.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3baab94708c392bd8773f2ffa9e46ff0.js": "/precache-manifest.3baab94708c392bd8773f2ffa9e46ff0.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.e50eebfd.chunk.css.map": "/static/css/main.e50eebfd.chunk.css.map",
+    "static/js/2.b1b73690.chunk.js.LICENSE.txt": "/static/js/2.b1b73690.chunk.js.LICENSE.txt",
+    "static/media/bookmark.svg": "/static/media/bookmark.0b77ae17.svg",
+    "static/media/bookmark_white.svg": "/static/media/bookmark_white.59a81fd3.svg",
+    "static/media/comment_icon.svg": "/static/media/comment_icon.de299b47.svg",
+    "static/media/favorite-white.svg": "/static/media/favorite-white.042aa417.svg",
+    "static/media/favorite.svg": "/static/media/favorite.4c67d875.svg",
+    "static/media/instagram.png": "/static/media/instagram.d5a0c6c4.png",
+    "static/media/share.svg": "/static/media/share.9c727536.svg",
+    "static/media/twitter.svg": "/static/media/twitter.32a50e2d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40261604.js",
+    "static/js/2.b1b73690.chunk.js",
+    "static/css/main.e50eebfd.chunk.css",
+    "static/js/main.9a62b2f7.chunk.js"
+  ]
+}

@@ -53,6 +53,11 @@ class App extends React.Component {
   }
 
   onClickEtapa1 = () => {
+
+    if (this.state.inputNome === "" || this.state.inputNome === " " || this.state.inputIdade === "" || this.state.inputIdade === " " || this.state.inputEmail === "" || this.state.inputEmail === " "){
+      return alert("Você deve preencher todas as perguntas antes de continuar")
+    }
+
     if (this.state.selecaoEnsino === "Ensino superior incompleto" || this.state.selecaoEnsino === "Ensino superior completo"){
       this.setState({
         etapa1: false,
@@ -69,6 +74,16 @@ class App extends React.Component {
   }
 
   onClickFinalizar = () => {
+
+    if (this.state.etapa2){
+      if (this.state.inputCursoSuperior === "" || this.state.inputCursoSuperior === " " || this.state.inputUnidadeCursoSuperior === "" || this.state.inputUnidadeCursoSuperior === " "){
+        return alert("Você deve preencher todas as perguntas antes de continuar")
+      }
+    }else if(this.state.etapa3){
+      if (this.state.inputNaoTerminou === "" || this.state.inputNaoTerminou === " "){
+        return alert("Você deve preencher todas as perguntas antes de continuar")
+      }
+    }
     this.setState({
       etapa1: false,
       etapa2: false,
@@ -78,6 +93,7 @@ class App extends React.Component {
   }
 
   render(){
+    
     if(this.state.etapa1){
       return (
         <div className="App">
