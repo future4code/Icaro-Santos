@@ -1,0 +1,16 @@
+.smallcard-container{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+}
+
+.smallcard-container > span{
+    font-size: 16px;
+}
+
+.smallcard-container img {
+    width: 40px;
+    margin-right: 10px;
+}
