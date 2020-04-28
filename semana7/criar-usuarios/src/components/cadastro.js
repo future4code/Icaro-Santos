@@ -54,9 +54,9 @@ class Cadastro extends React.Component{
         return(
             <DivInputs>
                 <Labels for="nome">Nome* </Labels>
-                <Inputs placeholder={"Nome"} value={this.props.valueNome} onChange={this.props.onChangeNome}></Inputs>
+                <Inputs type={"text"} placeholder={"Nome"} value={this.props.valueNome} onChange={this.props.onChangeNome}></Inputs>
                 <Labels for="email">Email* </Labels>
-                <Inputs placeholder={"Email"} value={this.props.valueEmail} onChange={this.props.onChangeEmail}></Inputs>
+                <Inputs type={"email"} placeholder={"Email"} value={this.props.valueEmail} onChange={this.props.onChangeEmail}></Inputs>
                 <Botao onClick={this.props.enviarCadastro}>Enviar</Botao>
             </DivInputs>
         )

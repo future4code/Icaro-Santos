@@ -4,9 +4,42 @@ import Cadastro from './components/cadastro'
 import Axios from 'axios';
 import styled from 'styled-components';
 
-const MainContainer = styled.div`
-  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-  font-family: 'Roboto', sans-serif;
+const DivNomes = styled.div`
+  display: flex;
+  margin: 0 auto 10px auto;
+  justify-content: space-between;
+  @media screen and (min-width: 500px){
+    width: 400px;
+  }
+  @media screen and (max-width: 499px){
+    width: 80%;
+  }
+`
+
+const Nomes = styled.span`
+`
+
+const BotaoDeletar = styled.button`
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 25px;
+`
+
+const BotaoMudarTela = styled.button`
+  margin-top: 50px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 `
 
 class App extends React.Component {
@@ -96,35 +129,34 @@ class App extends React.Component {
     const verificaTela = this.state.mostrarNomesCadastrados
 
     const testarFuncionamento = this.state.cadastros.map((cadastro) => {
-      return <div>
-          <p>{cadastro.name}</p>
-          <button onClick={() => this.deletar(cadastro.id)}>Deletar</button>
-        </div>
+      return (
+        <DivNomes>
+          <Nomes>{cadastro.name}</Nomes>
+          <BotaoDeletar onClick={() => this.deletar(cadastro.id)}>x</BotaoDeletar>
+        </DivNomes>
+      )
     })
 
     if(!verificaTela){
       return(
         <div className="App">
-          <MainContainer>
-            <h1>Cadastrar pessoa no sistema</h1>
-            <Cadastro
-              valueNome={this.state.inputNome}
-              onChangeNome={this.onChangeNome}
-              valueEmail={this.state.inputEmail}
-              onChangeEmail={this.onChangeEmail}
-              enviarCadastro={this.cadastrar}
-            />
-            <button onClick={this.mudarTela}>Lista com os nomes</button>
-          </MainContainer>
+          <h1>Cadastrar pessoa no sistema</h1>
+          <Cadastro
+            valueNome={this.state.inputNome}
+            onChangeNome={this.onChangeNome}
+            valueEmail={this.state.inputEmail}
+            onChangeEmail={this.onChangeEmail}
+            enviarCadastro={this.cadastrar}
+          />
+          <BotaoMudarTela onClick={this.mudarTela}>Lista com os nomes</BotaoMudarTela>
         </div>
       )
     }    
     return(
       <div className="App">
-        <MainContainer>
+        <h1>Usuários Cadastrados</h1>
         {testarFuncionamento}
-        <button onClick={this.mudarTela}>Cadastro</button>
-        </MainContainer>
+        <BotaoMudarTela onClick={this.mudarTela}>Cadastro</BotaoMudarTela>
       </div>
     )
     
