@@ -3,14 +3,19 @@ import styled from 'styled-components'
 
 const DivInputs = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
     margin: 0 auto;
     justify-content: center;
-    @media screen and (min-width: 1280px){
-        width: 1280px;
-    }
-    @media screen and (max-width: 1280px){
+    @media screen and (max-width: 499px){
         width: 90%;
+        grid-template-columns: 1fr;
+    }
+    @media screen and (min-width: 500px) and (max-width: 1279px){
+        width: 90%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media screen and (min-width: 1280px){
+        width: 1200px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 `
 
@@ -18,12 +23,18 @@ const Labels = styled.label`
     display: grid;
     justify-content: start;
     margin-bottom: 5px;
+    @media screen and (min-width: 500px){
+        grid-column: 1 / 5;
+    }
     
 `
 
 const Inputs = styled.input`
-    width: 100%;
     margin-bottom: 20px;
+    padding: 12px;
+    @media screen and (min-width: 500px){
+        grid-column: 1 / 5;
+    }
 `
 
 const Botao = styled.button`
@@ -35,7 +46,7 @@ const Botao = styled.button`
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    width: auto;
+    grid-column: 1;
 `
 
 class Cadastro extends React.Component{

@@ -106,7 +106,7 @@ class App extends React.Component {
       return(
         <div className="App">
           <MainContainer>
-            <h1>Cadastro</h1>
+            <h1>Cadastrar pessoa no sistema</h1>
             <Cadastro
               valueNome={this.state.inputNome}
               onChangeNome={this.onChangeNome}
