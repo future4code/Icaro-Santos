@@ -1,34 +1,11 @@
 import React from 'react';
 import './App.css';
 import Cadastro from './components/cadastro'
+import Nomes from './components/nomes'
+import DetalhesNomes from './components/detalhesNomes'
 import Axios from 'axios';
 import styled from 'styled-components';
 
-const DivNomes = styled.div`
-  display: flex;
-  margin: 0 auto 10px auto;
-  justify-content: space-between;
-  @media screen and (min-width: 500px){
-    width: 400px;
-  }
-  @media screen and (max-width: 499px){
-    width: 80%;
-  }
-`
-
-const Nomes = styled.span`
-`
-
-const BotaoDeletar = styled.button`
-  background-color: #d9534f;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  width: 25px;
-`
 
 const BotaoMudarTela = styled.button`
   margin-top: 50px;
@@ -46,8 +23,11 @@ class App extends React.Component {
   state = {
     inputNome: '',
     inputEmail: '',
+    inputBusca: '',
     mostrarNomesCadastrados: false,
-    cadastros: []
+    mostrarDetalhes: false,
+    cadastros: [],
+    detalhesPessoas: []
   }
 
   componentDidMount() {
@@ -60,6 +40,10 @@ class App extends React.Component {
 
   onChangeEmail = (event) => {
     this.setState({inputEmail: event.target.value})
+  }
+
+  onChangeBusca = (event) => {
+    this.setState({inputBusca: event.target.value})
   }
 
   mostrarNomes = () => {
@@ -102,19 +86,114 @@ class App extends React.Component {
     })
   }
 
-  deletar = (id) => {
+  mostrarDetalhes = (id) => {
     Axios
-    .delete('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/' + id, {
+    .get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/' + id, {
       headers: {
         Authorization: 'icaro-santos-julian'
       }
     })
     .then((response) => {
-      window.alert("Excluido com sucesso")
-      this.mostrarNomes()
+      this.setState({
+        detalhes: response.data,
+        mostrarDetalhes: !this.state.mostrarDetalhes
+      })
     })
     .catch((error) => {
-      window.alert("Erro na exclusão")
+      window.alert("Erro ao mostrar detalhes");
+    })
+  }
+
+  salvar = (id) => {
+
+    const verifica = {
+      name: this.state.inputNome,
+      email: this.state.inputEmail
+    }
+
+    let mudanca
+
+    if (verifica.email === ''){
+      mudanca = {
+        name: this.state.inputNome
+      }
+    }else if(verifica.name === ''){
+      mudanca = {
+        email: this.state.inputEmail
+      }
+    }else{
+      mudanca = {
+        name: this.state.inputNome,
+        email: this.state.inputEmail
+      }
+    }
+    Axios
+    .put('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/' + id, mudanca, {
+      headers: {
+        Authorization: 'icaro-santos-julian'
+      }
+    })
+    .then((response) => {
+      this.mostrarNomes()
+      this.setState({
+        inputNome: '',
+        inputEmail: '',
+        mostrarDetalhes: !this.state.mostrarDetalhes
+      })
+    })
+    .catch((error) => {
+      window.alert("Não funcionou")
+    })
+  }
+
+  deletar = (id) => {
+    if(window.confirm("Tem certeza que deseja deletar este usuário?")){
+      Axios
+      .delete('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/' + id, {
+        headers: {
+          Authorization: 'icaro-santos-julian'
+        }
+      })
+      .then((response) => {
+        window.alert("Excluido com sucesso")
+        this.mostrarNomes()
+        this.setState({
+          mostrarDetalhes: !this.state.mostrarDetalhes
+        })
+      })
+      .catch((error) => {
+        window.alert("Erro na exclusão")
+      })
+    }
+  }
+
+  buscar = () => {
+    Axios
+    .get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${this.state.inputBusca}`, {
+      headers: {
+        Authorization: 'icaro-santos-julian'
+      }
+    })
+    .then((response) => {
+      this.setState({
+        cadastros: response.data
+      })
+    })
+    .catch((error) => {
+      window.alert("Erro na busca")
+    })
+  }
+
+  limparBusca = () => {
+    this.mostrarNomes()
+    this.setState({
+      inputBusca: ''
+    })
+  }
+
+  voltar = () => {
+    this.setState({
+      mostrarDetalhes: !this.state.mostrarDetalhes
     })
   }
 
@@ -128,14 +207,7 @@ class App extends React.Component {
 
     const verificaTela = this.state.mostrarNomesCadastrados
 
-    const testarFuncionamento = this.state.cadastros.map((cadastro) => {
-      return (
-        <DivNomes>
-          <Nomes>{cadastro.name}</Nomes>
-          <BotaoDeletar onClick={() => this.deletar(cadastro.id)}>x</BotaoDeletar>
-        </DivNomes>
-      )
-    })
+    const mostrarDetalhes = this.state.mostrarDetalhes    
 
     if(!verificaTela){
       return(
@@ -151,11 +223,34 @@ class App extends React.Component {
           <BotaoMudarTela onClick={this.mudarTela}>Lista com os nomes</BotaoMudarTela>
         </div>
       )
-    }    
+    }
+    if(mostrarDetalhes){
+      return <div className="App">
+        <DetalhesNomes
+          name={this.state.detalhes.name}
+          email={this.state.detalhes.email}
+          deletar={() => this.deletar(this.state.detalhes.id)}
+          voltar={this.voltar}
+          valueNome={this.state.inputNome}
+          onChangeNome={this.onChangeNome}
+          valueEmail={this.state.inputEmail}
+          onChangeEmail={this.onChangeEmail}
+          salvar={() => this.salvar(this.state.detalhes.id)}
+        />
+      </div>
+    }
     return(
       <div className="App">
         <h1>Usuários Cadastrados</h1>
-        {testarFuncionamento}
+        <Nomes
+          valueBusca={this.state.inputBusca}
+          onChangeBusca={this.onChangeBusca}
+          botaoBusca={this.buscar}
+          botaoLimparBusca={this.limparBusca}
+          cadastros={this.state.cadastros}
+          mostrarDetalhes={this.mostrarDetalhes}
+          deletar={this.deletar}
+        />
         <BotaoMudarTela onClick={this.mudarTela}>Cadastro</BotaoMudarTela>
       </div>
     )
