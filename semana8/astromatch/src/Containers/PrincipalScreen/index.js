@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import { Container, Row } from 'react-bootstrap'
+import PrincipalComponent from '../../Components/Principal'
+import MatchComponent from '../../Components/Matches'
 
 
 function PrincipalScreen() {
+    const [botaoHeader, setBotaoHeader] = useState(false)
+
+    const onClickBotaoMatch = () => {
+        setBotaoHeader(!botaoHeader)
+    }
+
+    const telaPrincipal = !botaoHeader ? (
+        <PrincipalComponent botaoHeader={onClickBotaoMatch}></PrincipalComponent>
+    ) : (
+        <MatchComponent botaoHeader={onClickBotaoMatch}/>
+    )
 
     return (
-        <div>
-            <Card>
-                <CardContent>
-                    Testando123
-                </CardContent>
-                <CardContent>
-                    Testando123
-                </CardContent>
-                <CardActions>
-                    Sou lindo
-                </CardActions>
-            </Card>
-        </div>
+        <Container>
+            <Row>
+                {telaPrincipal}
+            </Row>
+        </Container>
     )
 
 }
