@@ -8,6 +8,8 @@ import MatchComponent from '../../Components/Matches'
 function PrincipalScreen() {
     const [botaoHeader, setBotaoHeader] = useState(false)
 
+    
+
     const onClickBotaoMatch = () => {
         setBotaoHeader(!botaoHeader)
     }
@@ -29,7 +31,7 @@ function PrincipalScreen() {
     const telaPrincipal = !botaoHeader ? (
         <PrincipalComponent botaoHeader={onClickBotaoMatch}></PrincipalComponent>
     ) : (
-        <MatchComponent botaoHeader={onClickBotaoMatch} limparLista={limparLista}/>
+        <MatchComponent botaoHeader={onClickBotaoMatch} />
     )
 
     return (
