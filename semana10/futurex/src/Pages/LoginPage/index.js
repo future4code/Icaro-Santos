@@ -12,6 +12,14 @@ const LoginPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    useEffect(() => {
+        const token = window.localStorage.getItem('token');
+
+        if (token !== null){
+            history.push('/trips/list')
+        }
+    })
+
     const handleLogin = async() => {
         const body = {
             email: email,

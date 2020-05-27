@@ -1,9 +1,11 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
+import {ProtectedPage} from '../../Hooks/ProtectedPage'
 
 const ListTripsPage = () => {
     const history = useHistory()
 
+    ProtectedPage();
 
     const handleLogout = () => {
         localStorage.clear()

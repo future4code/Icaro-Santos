@@ -1,8 +1,11 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
+import {ProtectedPage} from '../../Hooks/ProtectedPage'
 
 const TripDetailsPage = () => {
     const history = useHistory()
+
+    ProtectedPage();
 
     const goToHomePage = () => {
         history.push('/')
