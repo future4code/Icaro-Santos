@@ -22,6 +22,17 @@ describe("Checa itens duplicados", () => {
         const resultado = checaItensDuplicados(['icaro', 'icaro'])
         expect(resultado).toEqual(true)
     })
+    test('retorna true', () => {
+        const resultado = checaItensDuplicados([1, 1, 1])
+        expect(resultado).toEqual(true)
+    })
+
+    test('retorna true', () => {
+        const resultado = checaItensDuplicados([1, 1, 1, 2, 5, 7])
+        expect(resultado).toEqual(true)
+    })
 });
 
+
+// Caso tenham 3 itens duplicados, ele retorna false
 // Função tem erro quando escrevemos o mesmo item com maiúsculo e minúsculo
