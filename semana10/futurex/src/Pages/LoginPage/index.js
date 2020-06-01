@@ -18,7 +18,13 @@ const LoginPage = () => {
         if (token !== null){
             history.push('/trips/list')
         }
-    })
+    }, [])
+
+    const pressEnter = (event) => {
+        if(event.key === 'Enter'){
+            handleLogin()
+        }
+    }
 
     const handleLogin = async() => {
         const body = {
@@ -34,7 +40,6 @@ const LoginPage = () => {
             setEmail('')
             setPassword('')
         }
-    
     }
     
     return (
@@ -54,6 +59,7 @@ const LoginPage = () => {
                     type="password"
                     value={password}
                     onChange={event => setPassword(event.target.value)}
+                    onKeyPress={pressEnter}
                     />
                 <Button onClick={handleLogin}>Entrar</Button>
             </Container>
