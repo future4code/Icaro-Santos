@@ -5,6 +5,7 @@ import { Post } from "./components/Post";
 const App = () => {
   const [postsList, setPostsList] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [erro, setErro] = useState(false)
 
   const onChangeInput = event => {
     setInputValue(event.target.value);
@@ -20,8 +21,13 @@ const App = () => {
 
     const newPostsList = [newPost, ...postsList];
 
-    setPostsList(newPostsList);
-    setInputValue('')
+    if(inputValue === ''){
+      setErro(true)
+    }else{
+      setPostsList(newPostsList);
+      setInputValue('')
+      setErro(false)
+    }
   };
 
   const deletePost = postId => {
@@ -74,6 +80,7 @@ const App = () => {
         <button onClick={addPost}>Adicionar</button>
       </div>
       <br />
+      {erro === false ? <div/> : <h3>Insira um valor</h3>}
       {posts.length === 0 ? <h1>Nenhum post</h1> : 
       <div>
         {posts}

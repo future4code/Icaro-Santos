@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, waitForElement } from "@testing-library/react";
+import { render, fireEvent, waitForElement, getByLabelText } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import App from "./App";
 
@@ -72,4 +72,16 @@ test("mostrar quantidade de posts caso exista ao menos um", () => {
     const qtdPosts = getByText(/1/i)
 
     expect(qtdPosts).toHaveTextContent(/quantidade de posts/i)
+})
+
+test("caso o usuário tente criar post vazio", () => {
+    const {getByText, getByPlaceholderText} = render(<App/>)
+
+    const inputPost = getByPlaceholderText(/novo post/i)
+
+    const addBotao = getByText(/adicionar/i)
+
+    fireEvent.click(addBotao)
+
+    const checarErro = getByText(/insira um valor/i)
 })
