@@ -6,68 +6,35 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 
-const Tasks = () => {
-    const [taskList, setTaskList] = useState([
+const Tasks = (props) => {    
 
-    ])
-
-    useEffect(() => {
-        takeTasks()
-    }, [])
-
-    const takeTasks = () => {
-        axios
-            .get('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-julian-icaro-santos')
-            .then(response => {
-                setTaskList(response.data)
-            })
-            .catch(err => {
-                window.alert(err)
-            })
-    }
-
-    const domingo = taskList.filter((task) => {
+    const domingo = props.taskList.filter((task) => {
         return task.day === "domingo"
     })
 
-    const segunda = taskList.filter((task) => {
+    const segunda = props.taskList.filter((task) => {
         return task.day === "segunda"
     })
 
-    const terca = taskList.filter((task) => {
+    const terca = props.taskList.filter((task) => {
         return task.day === "terca"
     })
 
-    const quarta = taskList.filter((task) => {
+    const quarta = props.taskList.filter((task) => {
         return task.day === "quarta"
     })
 
-    const quinta = taskList.filter((task) => {
+    const quinta = props.taskList.filter((task) => {
         return task.day === "quinta"
     })
 
-    const sexta = taskList.filter((task) => {
+    const sexta = props.taskList.filter((task) => {
         return task.day === "sexta"
     })
 
-    const sabado = taskList.filter((task) => {
+    const sabado = props.taskList.filter((task) => {
         return task.day === "sabado"
     })
-
-    const deleteTask = (id) => {
-        if(window.confirm("Tem certeza que deseja excluir a tarefa?")){
-            axios
-                .delete('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-julian-icaro-santos/' + id)
-                .then(response => {
-
-                })
-                .catch(err => {
-                    window.alert(err)
-                })
-            
-            }
-        takeTasks()
-    }
 
     return(
         <Container>
@@ -76,7 +43,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Domingo</Typography>
                         {domingo.map((task) => {
-                            return <li>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>
@@ -84,7 +51,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Segunda</Typography>
                         {segunda.map((task) => {
-                            return <li onClick={() => deleteTask(task.id)}>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>
@@ -92,7 +59,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Terça</Typography>
                         {terca.map((task) => {
-                            return <li>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>
@@ -100,7 +67,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Quarta</Typography>
                         {quarta.map((task) => {
-                            return <li>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>
@@ -108,7 +75,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Quinta</Typography>
                         {quinta.map((task) => {
-                            return <li>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>
@@ -116,7 +83,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Sexta</Typography>
                         {sexta.map((task) => {
-                            return <li>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>
@@ -124,7 +91,7 @@ const Tasks = () => {
                     <PaperWrapper>
                         <Typography variant="h4">Sábado</Typography>
                         {sabado.map((task) => {
-                            return <li>{task.text}</li>
+                            return <li onClick={() => props.deleteTask(task.id)}>{task.text}</li>
                         })}
                     </PaperWrapper>
                 </Grid>

@@ -19,22 +19,9 @@ const useStyles = makeStyles((theme) => ({
 
 const NewTask = (props) => {
     const classes = useStyles()
-    const [inputTask, setInputTask] = useState('')
-    const [selectDay, setSelectDay] = useState('')
+    
 
-    const postTask = () => {
-        axios
-            .post('https://us-central1-labenu-apis.cloudfunctions.net/generic/planner-julian-icaro-santos', {
-                day: selectDay,
-                text: inputTask
-            })
-            .then(response => {
-
-            })
-            .catch(err => {
-                window.alert(err)
-            })
-    }
+    
 
     return(
         <div>
@@ -43,8 +30,8 @@ const NewTask = (props) => {
                     <InputLabel id="label">Insira o dia</InputLabel>
                     <Select 
                         labelId="label"
-                        value={selectDay}
-                        onChange={event => setSelectDay(event.target.value)}
+                        value={props.selectDay}
+                        onChange={props.setSelectDay}
                         >
                         <MenuItem value="domingo">Domingo</MenuItem>
                         <MenuItem value="segunda">Segunda</MenuItem>
@@ -58,13 +45,13 @@ const NewTask = (props) => {
                 <FormControl className={classes.formControl}>
                     <TextField 
                         label="Insira sua tarefa"
-                        value={inputTask}
-                        onChange={event => setInputTask(event.target.value)}
+                        value={props.inputTask}
+                        onChange={props.setInputTask}
                         ></TextField>
                 </FormControl>
                     
             </Container>
-            <Button color="primary" variant="contained" onClick={postTask}>Confirmar</Button>
+            <Button color="primary" variant="contained" onClick={props.postTask}>Confirmar</Button>
         </div>
     )
 }
