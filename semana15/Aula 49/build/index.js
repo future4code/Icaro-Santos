@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const customer_1 = require("./customer");
+const seller_1 = require("./seller");
+const newCustomer = new customer_1.Customer("1", "icaro.ssantos96@gmail.com", "Icaro", "dasuiodsa", "469459-98196ax");
+const newSeller = new seller_1.Seller('2', 'fernanda@gmail.com', "Fernanda", "12354", "14/06/2020", 1280);
+console.log(newCustomer.introduceYourself());
+console.log(newSeller.introduceYourself(), newSeller.calculateTotalSalary(), newSeller.getSalesQuantity());
+newSeller.setSalesQuantity(5);
+console.log(newSeller.getSalesQuantity(), newSeller.calculateTotalSalary());
