@@ -47,6 +47,13 @@ export class PostDatabase extends BaseDatabase {
         return result[0];
     }
 
+    public async deletePostById(id: string): Promise<void> {
+        await this.getConnection()
+            .delete()
+            .from(PostDatabase.TABLE_NAME)
+            .where({id})
+    }
+
     public async getPostByType(postData: GetPostByTypeDTO): Promise<Post[]> {
         const posts = await this.getConnection()
             .select("*")
