@@ -1,0 +1,17 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "Sistema bancário",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js"
+  },
+  "author": "Icaro Souza",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^14.0.14",
+    "axios": "^0.19.2",
+    "moment": "^2.27.0"
+  }
+}
