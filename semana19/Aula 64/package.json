@@ -1,0 +1,26 @@
+{
+  "name": "aula-64",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@types/jest": "^26.0.7",
+    "@types/node": "^14.0.26",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.4",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "ts-node-dev ./src/index.ts",
+    "test": "jest",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC"
+}
