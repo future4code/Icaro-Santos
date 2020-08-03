@@ -15,4 +15,30 @@ export class BandDatabase extends BaseDatabase {
             )
         `)
     }
+
+    public async getBandById(id: string): Promise<Band> {
+        const result = await super.getConnection()
+            .select("*")
+            .from(this.tableName)
+            .where({id})
+
+        return result[0]
+    }
+
+    public async getBandByName(name: string): Promise<Band> {
+        const result = await super.getConnection()
+            .select("*")
+            .from(this.tableName)
+            .where({name})
+
+        return result[0]
+    }
+
+    public async getAllBands(): Promise<Band[]> {
+        const result = await super.getConnection()
+            .select("*")
+            .from(this.tableName)
+
+        return result
+    }
 }
