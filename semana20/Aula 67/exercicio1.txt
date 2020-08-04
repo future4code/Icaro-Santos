@@ -1,0 +1,22 @@
+B) retorna "Missing input"
+C) ainda vai retornar "missing input"
+D) vai retornar "missing email"
+E) "invalid password"
+F) "User is correct"
+G) devemos adicionar um if da seguinte forma
+if(user.email.indefOf("@") === -1){
+	return{
+		statusCode: 422,
+		body: JSON.stringify({message: "Invalid email"})
+	}
+}
+H) {
+  "user": {
+		"info": {
+			"name": "Astrodev",
+			"email": "astrodev@f4.com.br",
+			"password": "123456"
+		}
+  }
+}
+
